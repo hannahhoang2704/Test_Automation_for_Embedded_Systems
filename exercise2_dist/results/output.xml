@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.9.15 on darwin)" generated="2024-10-30T20:07:38.165507" rpa="false" schemaversion="5">
+<suite id="s1" name="Exercise2 Dist" source="/Users/HannahHoang/Desktop-/Metropolia-STUDY/Test_automation/exercise2_dist">
+<suite id="s1-s1" name="Atcmd" source="/Users/HannahHoang/Desktop-/Metropolia-STUDY/Test_automation/exercise2_dist/atcmd.robot">
+<test id="s1-s1-t1" name="Only Characters" line="16">
+<kw name="Send text to Pico">
+<kw name="Send Text" owner="AtCommandLibrary">
+<arg>${command}</arg>
+<status status="PASS" start="2024-10-30T20:07:38.239501" elapsed="0.004656"/>
+</kw>
+<kw name="Response Should Be" owner="AtCommandLibrary">
+<arg>SENT="${response}"</arg>
+<status status="PASS" start="2024-10-30T20:07:38.244538" elapsed="0.001008"/>
+</kw>
+<kw name="Response Should Be" owner="AtCommandLibrary">
+<arg>OK</arg>
+<status status="PASS" start="2024-10-30T20:07:38.245991" elapsed="0.001109"/>
+</kw>
+<arg>*!#?;&amp;@</arg>
+<arg>XXXXXXX</arg>
+<status status="PASS" start="2024-10-30T20:07:38.238255" elapsed="0.009421"/>
+</kw>
+<status status="PASS" start="2024-10-30T20:07:38.236372" elapsed="0.012330"/>
+</test>
+<doc>Example of morse transmitter test
+
+Change this example to use data driven style
+Test with different texts and speeds</doc>
+<status status="PASS" start="2024-10-30T20:07:38.210186" elapsed="0.043891"/>
+</suite>
+<status status="PASS" start="2024-10-30T20:07:38.174205" elapsed="0.082029"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Exercise2 Dist">Exercise2 Dist</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="Atcmd">Exercise2 Dist.Atcmd</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
