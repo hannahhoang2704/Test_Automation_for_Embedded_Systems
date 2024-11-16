@@ -1,11 +1,11 @@
 # Run all the test 
-robot -v COM_PORT:/dev/tty.usbmodem143201 atcmd.robot 
+robot -v COM_PORT:/dev/tty.usbmodem144401 atcmd.robot 
 
 # All tests exclude numerical
-robot --exclude numerical -v COM_PORT:/dev/tty.usbmodem143201 atcmd.robot
+robot --exclude numerical -v COM_PORT:/dev/tty.usbmodem144401 atcmd.robot
 
 # Text only test
-robot --include text_only -v COM_PORT:/dev/tty.usbmodem143201 atcmd.robot
+robot --include text_only -v COM_PORT:/dev/tty.usbmodem144401 atcmd.robot
 
 # All test in random order
-robot --randomize all -v COM_PORT:/dev/tty.usbmodem143201 atcmd.robot
+robot --randomize all -v COM_PORT:/dev/tty.usbmodem144401 atcmd.robot

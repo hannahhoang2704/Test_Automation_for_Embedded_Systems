@@ -6,7 +6,7 @@ Documentation     Example of morse transmitter test
 Suite Setup			Suite setup
 Suite Teardown		Suite teardown
 Test Template		Send text to Pico
-Resource			common_keywords.robot
+Resource			common_keywords.resource
 
 *** Variables ***
 ${COM_PORT}         /dev/tty.usbmodem144201

@@ -1,455 +1,433 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.1.1 (Python 3.9.15 on darwin)" generated="2024-11-06T22:33:10.222538" rpa="false" schemaversion="5">
+<robot generator="Robot 7.1.1 (Python 3.9.15 on darwin)" generated="2024-11-07T11:45:11.484319" rpa="false" schemaversion="5">
 <suite id="s1" name="Atcmd" source="/Users/HannahHoang/Desktop-/Metropolia-STUDY/Test_automation/Test_Automation_for_Embedded_Systems/exercise4/atcmd.robot">
 <kw name="Suite setup" owner="common_keywords" type="SETUP">
 <kw name="Send AT command" owner="common_keywords">
 <kw name="Send Command" owner="AtCommandLibrary">
 <arg>AT</arg>
-<status status="PASS" start="2024-11-06T22:33:10.282067" elapsed="0.004783"/>
+<status status="PASS" start="2024-11-07T11:45:11.540190" elapsed="0.003952"/>
 </kw>
 <kw name="Response Should Be" owner="AtCommandLibrary">
 <arg>AT</arg>
-<status status="PASS" start="2024-11-06T22:33:10.287151" elapsed="0.000408"/>
+<status status="PASS" start="2024-11-07T11:45:11.544500" elapsed="0.000414"/>
 </kw>
 <kw name="Response Should Be" owner="AtCommandLibrary">
 <arg>OK</arg>
-<status status="PASS" start="2024-11-06T22:33:10.287734" elapsed="0.000195"/>
+<status status="PASS" start="2024-11-07T11:45:11.545155" elapsed="0.000270"/>
 </kw>
-<status status="PASS" start="2024-11-06T22:33:10.281589" elapsed="0.006410"/>
+<status status="PASS" start="2024-11-07T11:45:11.539267" elapsed="0.006258"/>
 </kw>
 <kw name="Switch local echo off" owner="common_keywords">
 <kw name="Send Command" owner="AtCommandLibrary">
 <arg>ATE0</arg>
-<status status="PASS" start="2024-11-06T22:33:10.288364" elapsed="0.000211"/>
+<status status="PASS" start="2024-11-07T11:45:11.546012" elapsed="0.000270"/>
 </kw>
 <kw name="Response Should Be" owner="AtCommandLibrary">
 <arg>ATE0</arg>
-<status status="PASS" start="2024-11-06T22:33:10.288695" elapsed="0.000560"/>
+<status status="PASS" start="2024-11-07T11:45:11.546544" elapsed="0.000505"/>
 </kw>
 <kw name="Response Should Be" owner="AtCommandLibrary">
 <arg>OK</arg>
-<status status="PASS" start="2024-11-06T22:33:10.289491" elapsed="0.000174"/>
+<status status="PASS" start="2024-11-07T11:45:11.547276" elapsed="0.000280"/>
 </kw>
-<status status="PASS" start="2024-11-06T22:33:10.288158" elapsed="0.001579"/>
+<status status="PASS" start="2024-11-07T11:45:11.545739" elapsed="0.001915"/>
 </kw>
 <kw name="Check echo status" owner="common_keywords">
 <kw name="Send Command" owner="AtCommandLibrary">
 <arg>ATE</arg>
-<status status="PASS" start="2024-11-06T22:33:10.290196" elapsed="0.000220"/>
+<status status="PASS" start="2024-11-07T11:45:11.548238" elapsed="0.000378"/>
 </kw>
 <kw name="Response Should Be" owner="AtCommandLibrary">
 <arg>${expected_status}</arg>
-<status status="PASS" start="2024-11-06T22:33:10.290552" elapsed="0.000550"/>
+<status status="PASS" start="2024-11-07T11:45:11.548942" elapsed="0.000347"/>
 </kw>
 <arg>OFF</arg>
-<status status="PASS" start="2024-11-06T22:33:10.289907" elapsed="0.001300"/>
+<status status="PASS" start="2024-11-07T11:45:11.547856" elapsed="0.001568"/>
 </kw>
-<status status="PASS" start="2024-11-06T22:33:10.280950" elapsed="0.010318"/>
+<status status="PASS" start="2024-11-07T11:45:11.538384" elapsed="0.011133"/>
 </kw>
 <test id="s1-t1" name="Only letters lowecase" line="15">
 <kw name="Send text to Pico" owner="common_keywords">
 <kw name="Send Text" owner="AtCommandLibrary">
 <arg>${command}</arg>
-<status status="PASS" start="2024-11-06T22:33:10.292502" elapsed="0.002113"/>
+<status status="PASS" start="2024-11-07T11:45:11.551336" elapsed="0.001954"/>
 </kw>
 <kw name="Response Should Be" owner="AtCommandLibrary">
 <arg>SENT="${response}"</arg>
-<status status="PASS" start="2024-11-06T22:33:10.294896" elapsed="0.001077"/>
+<status status="PASS" start="2024-11-07T11:45:11.553620" elapsed="0.000862"/>
 </kw>
 <kw name="Response Should Be" owner="AtCommandLibrary">
 <arg>OK</arg>
-<status status="PASS" start="2024-11-06T22:33:10.296273" elapsed="0.000761"/>
+<status status="PASS" start="2024-11-07T11:45:11.554728" elapsed="0.000276"/>
 </kw>
 <arg>this is a test</arg>
 <arg>THIS IS A TEST</arg>
-<status status="PASS" start="2024-11-06T22:33:10.291935" elapsed="0.005419"/>
+<status status="PASS" start="2024-11-07T11:45:11.550451" elapsed="0.004660"/>
 </kw>
 <tag>text_only</tag>
-<status status="PASS" start="2024-11-06T22:33:10.291355" elapsed="0.006427"/>
+<status status="PASS" start="2024-11-07T11:45:11.549607" elapsed="0.005712"/>
 </test>
 <test id="s1-t2" name="Only Uppercase" line="18">
 <kw name="Send text to Pico" owner="common_keywords">
 <kw name="Send Text" owner="AtCommandLibrary">
 <arg>${command}</arg>
-<status status="PASS" start="2024-11-06T22:33:10.300600" elapsed="0.002216"/>
+<status status="PASS" start="2024-11-07T11:45:11.557054" elapsed="0.001881"/>
 </kw>
 <kw name="Response Should Be" owner="AtCommandLibrary">
 <arg>SENT="${response}"</arg>
-<status status="PASS" start="2024-11-06T22:33:10.303136" elapsed="0.000673"/>
+<status status="PASS" start="2024-11-07T11:45:11.559235" elapsed="0.000844"/>
 </kw>
 <kw name="Response Should Be" owner="AtCommandLibrary">
 <arg>OK</arg>
-<status status="PASS" start="2024-11-06T22:33:10.304086" elapsed="0.000224"/>
+<status status="PASS" start="2024-11-07T11:45:11.560411" elapsed="0.000356"/>
 </kw>
 <arg>ABCDEFG</arg>
 <arg>ABCDEFG</arg>
-<status status="PASS" start="2024-11-06T22:33:10.299515" elapsed="0.004878"/>
+<status status="PASS" start="2024-11-07T11:45:11.556502" elapsed="0.004471"/>
 </kw>
 <tag>text_only</tag>
-<status status="PASS" start="2024-11-06T22:33:10.298322" elapsed="0.006256"/>
+<status status="PASS" start="2024-11-07T11:45:11.555682" elapsed="0.005690"/>
 </test>
 <test id="s1-t3" name="Lower, Uppercase letters" line="21">
 <kw name="Send text to Pico" owner="common_keywords">
 <kw name="Send Text" owner="AtCommandLibrary">
 <arg>${command}</arg>
-<status status="PASS" start="2024-11-06T22:33:10.305821" elapsed="0.001801"/>
+<status status="PASS" start="2024-11-07T11:45:11.564103" elapsed="0.002307"/>
 </kw>
 <kw name="Response Should Be" owner="AtCommandLibrary">
 <arg>SENT="${response}"</arg>
-<status status="PASS" start="2024-11-06T22:33:10.307890" elapsed="0.001064"/>
+<status status="PASS" start="2024-11-07T11:45:11.566661" elapsed="0.000886"/>
 </kw>
 <kw name="Response Should Be" owner="AtCommandLibrary">
 <arg>OK</arg>
-<status status="PASS" start="2024-11-06T22:33:10.309234" elapsed="0.000500"/>
+<status status="PASS" start="2024-11-07T11:45:11.567719" elapsed="0.000221"/>
 </kw>
 <arg>tHis Is a test</arg>
 <arg>THIS IS A TEST</arg>
-<status status="PASS" start="2024-11-06T22:33:10.305362" elapsed="0.004566"/>
+<status status="PASS" start="2024-11-07T11:45:11.563627" elapsed="0.004391"/>
 </kw>
 <tag>text_only</tag>
-<status status="PASS" start="2024-11-06T22:33:10.304837" elapsed="0.005393"/>
+<status status="PASS" start="2024-11-07T11:45:11.562097" elapsed="0.006108"/>
 </test>
-<test id="s1-t4" name="Only numbers" line="24">
+<test id="s1-t4" name="Both numbers and letters" line="27">
 <kw name="Send text to Pico" owner="common_keywords">
 <kw name="Send Text" owner="AtCommandLibrary">
 <arg>${command}</arg>
-<status status="PASS" start="2024-11-06T22:33:10.312092" elapsed="0.002027"/>
+<status status="PASS" start="2024-11-07T11:45:11.569723" elapsed="0.001725"/>
 </kw>
 <kw name="Response Should Be" owner="AtCommandLibrary">
 <arg>SENT="${response}"</arg>
-<status status="PASS" start="2024-11-06T22:33:10.314400" elapsed="0.000807"/>
+<status status="PASS" start="2024-11-07T11:45:11.571702" elapsed="0.000844"/>
 </kw>
 <kw name="Response Should Be" owner="AtCommandLibrary">
 <arg>OK</arg>
-<status status="PASS" start="2024-11-06T22:33:10.315451" elapsed="0.000366"/>
-</kw>
-<arg>1234</arg>
-<arg>1234</arg>
-<status status="PASS" start="2024-11-06T22:33:10.311501" elapsed="0.004513"/>
-</kw>
-<tag>numerical</tag>
-<status status="PASS" start="2024-11-06T22:33:10.310772" elapsed="0.005635"/>
-</test>
-<test id="s1-t5" name="Both numbers and letters" line="27">
-<kw name="Send text to Pico" owner="common_keywords">
-<kw name="Send Text" owner="AtCommandLibrary">
-<arg>${command}</arg>
-<status status="PASS" start="2024-11-06T22:33:10.319547" elapsed="0.002352"/>
-</kw>
-<kw name="Response Should Be" owner="AtCommandLibrary">
-<arg>SENT="${response}"</arg>
-<status status="PASS" start="2024-11-06T22:33:10.322265" elapsed="0.000932"/>
-</kw>
-<kw name="Response Should Be" owner="AtCommandLibrary">
-<arg>OK</arg>
-<status status="PASS" start="2024-11-06T22:33:10.323564" elapsed="0.000563"/>
+<status status="PASS" start="2024-11-07T11:45:11.572767" elapsed="0.000269"/>
 </kw>
 <arg>number is 12</arg>
 <arg>NUMBER IS 12</arg>
-<status status="PASS" start="2024-11-06T22:33:10.318662" elapsed="0.005791"/>
+<status status="PASS" start="2024-11-07T11:45:11.569090" elapsed="0.004065"/>
 </kw>
 <tag>mixed</tag>
-<status status="PASS" start="2024-11-06T22:33:10.317132" elapsed="0.007801"/>
+<status status="PASS" start="2024-11-07T11:45:11.568463" elapsed="0.004963"/>
 </test>
-<test id="s1-t6" name="Empty" line="29">
+<test id="s1-t5" name="Empty" line="29">
 <kw name="Send text to Pico" owner="common_keywords">
 <kw name="Send Text" owner="AtCommandLibrary">
 <arg>${command}</arg>
-<status status="PASS" start="2024-11-06T22:33:10.328791" elapsed="0.002395"/>
+<status status="PASS" start="2024-11-07T11:45:11.576096" elapsed="0.001889"/>
 </kw>
 <kw name="Response Should Be" owner="AtCommandLibrary">
 <arg>SENT="${response}"</arg>
-<status status="PASS" start="2024-11-06T22:33:10.331479" elapsed="0.000906"/>
+<status status="PASS" start="2024-11-07T11:45:11.578329" elapsed="0.000477"/>
 </kw>
 <kw name="Response Should Be" owner="AtCommandLibrary">
 <arg>OK</arg>
-<status status="PASS" start="2024-11-06T22:33:10.332620" elapsed="0.000296"/>
+<status status="PASS" start="2024-11-07T11:45:11.579019" elapsed="0.000277"/>
 </kw>
 <arg>${EMPTY}</arg>
 <arg>${EMPTY}</arg>
-<status status="PASS" start="2024-11-06T22:33:10.327328" elapsed="0.005711"/>
+<status status="PASS" start="2024-11-07T11:45:11.574613" elapsed="0.004801"/>
 </kw>
 <tag>mixed</tag>
-<status status="PASS" start="2024-11-06T22:33:10.325921" elapsed="0.007453"/>
+<status status="PASS" start="2024-11-07T11:45:11.573835" elapsed="0.005890"/>
 </test>
-<test id="s1-t7" name="Only Space" line="32">
+<test id="s1-t6" name="Only Space" line="32">
 <kw name="Send text to Pico" owner="common_keywords">
 <kw name="Send Text" owner="AtCommandLibrary">
 <arg>${command}</arg>
-<status status="PASS" start="2024-11-06T22:33:10.336609" elapsed="0.002058"/>
+<status status="PASS" start="2024-11-07T11:45:11.583437" elapsed="0.002333"/>
 </kw>
 <kw name="Response Should Be" owner="AtCommandLibrary">
 <arg>SENT="${response}"</arg>
-<status status="PASS" start="2024-11-06T22:33:10.339000" elapsed="0.000626"/>
+<status status="PASS" start="2024-11-07T11:45:11.586100" elapsed="0.000650"/>
 </kw>
 <kw name="Response Should Be" owner="AtCommandLibrary">
 <arg>OK</arg>
-<status status="PASS" start="2024-11-06T22:33:10.339806" elapsed="0.000219"/>
+<status status="PASS" start="2024-11-07T11:45:11.586931" elapsed="0.000242"/>
 </kw>
 <arg>${SPACE*10}</arg>
 <arg>${SPACE*10}</arg>
-<status status="PASS" start="2024-11-06T22:33:10.334785" elapsed="0.005334"/>
+<status status="PASS" start="2024-11-07T11:45:11.581023" elapsed="0.006240"/>
 </kw>
 <tag>mixed</tag>
-<status status="PASS" start="2024-11-06T22:33:10.333955" elapsed="0.006358"/>
+<status status="PASS" start="2024-11-07T11:45:11.580173" elapsed="0.007284"/>
 </test>
-<test id="s1-t8" name="Only Tab" line="35">
+<test id="s1-t7" name="Only Tab" line="35">
 <kw name="Send text to Pico" owner="common_keywords">
 <kw name="Send Text" owner="AtCommandLibrary">
 <arg>${command}</arg>
-<status status="PASS" start="2024-11-06T22:33:10.341670" elapsed="0.001767"/>
+<status status="PASS" start="2024-11-07T11:45:11.588738" elapsed="0.001887"/>
 </kw>
 <kw name="Response Should Be" owner="AtCommandLibrary">
 <arg>SENT="${response}"</arg>
-<status status="PASS" start="2024-11-06T22:33:10.343662" elapsed="0.000671"/>
+<status status="PASS" start="2024-11-07T11:45:11.590910" elapsed="0.000487"/>
 </kw>
 <kw name="Response Should Be" owner="AtCommandLibrary">
 <arg>OK</arg>
-<status status="PASS" start="2024-11-06T22:33:10.344581" elapsed="0.000219"/>
+<status status="PASS" start="2024-11-07T11:45:11.591608" elapsed="0.000211"/>
 </kw>
 <arg>\t</arg>
 <arg>${SPACE}</arg>
-<status status="PASS" start="2024-11-06T22:33:10.341015" elapsed="0.003872"/>
+<status status="PASS" start="2024-11-07T11:45:11.588298" elapsed="0.003597"/>
 </kw>
 <tag>mixed</tag>
-<status status="PASS" start="2024-11-06T22:33:10.340569" elapsed="0.004502"/>
+<status status="PASS" start="2024-11-07T11:45:11.587720" elapsed="0.004390"/>
 </test>
-<test id="s1-t9" name="Only Characters" line="38">
+<test id="s1-t8" name="Only Characters" line="38">
 <kw name="Send text to Pico" owner="common_keywords">
 <kw name="Send Text" owner="AtCommandLibrary">
 <arg>${command}</arg>
-<status status="PASS" start="2024-11-06T22:33:10.346237" elapsed="0.002124"/>
+<status status="PASS" start="2024-11-07T11:45:11.593161" elapsed="0.002418"/>
 </kw>
 <kw name="Response Should Be" owner="AtCommandLibrary">
 <arg>SENT="${response}"</arg>
-<status status="PASS" start="2024-11-06T22:33:10.348822" elapsed="0.001273"/>
+<status status="PASS" start="2024-11-07T11:45:11.595878" elapsed="0.000791"/>
 </kw>
 <kw name="Response Should Be" owner="AtCommandLibrary">
 <arg>OK</arg>
-<status status="PASS" start="2024-11-06T22:33:10.350600" elapsed="0.000514"/>
+<status status="PASS" start="2024-11-07T11:45:11.597034" elapsed="0.000293"/>
 </kw>
 <arg>*!#?;&amp;@</arg>
 <arg>XXXXXXX</arg>
-<status status="PASS" start="2024-11-06T22:33:10.345805" elapsed="0.005611"/>
+<status status="PASS" start="2024-11-07T11:45:11.592810" elapsed="0.004619"/>
 </kw>
 <tag>mixed</tag>
-<status status="PASS" start="2024-11-06T22:33:10.345336" elapsed="0.006446"/>
+<status status="PASS" start="2024-11-07T11:45:11.592352" elapsed="0.005390"/>
 </test>
-<test id="s1-t10" name="Only Quotation" line="41">
+<test id="s1-t9" name="Only Quotation" line="41">
 <kw name="Send text to Pico" owner="common_keywords">
 <kw name="Send Text" owner="AtCommandLibrary">
 <arg>${command}</arg>
-<status status="PASS" start="2024-11-06T22:33:10.353357" elapsed="0.001972"/>
+<status status="PASS" start="2024-11-07T11:45:11.599426" elapsed="0.001759"/>
 </kw>
 <kw name="Response Should Be" owner="AtCommandLibrary">
 <arg>SENT="${response}"</arg>
-<status status="PASS" start="2024-11-06T22:33:10.355532" elapsed="0.000554"/>
+<status status="PASS" start="2024-11-07T11:45:11.601590" elapsed="0.000512"/>
 </kw>
 <kw name="Response Should Be" owner="AtCommandLibrary">
 <arg>OK</arg>
-<status status="PASS" start="2024-11-06T22:33:10.356268" elapsed="0.000202"/>
+<status status="PASS" start="2024-11-07T11:45:11.602332" elapsed="0.000211"/>
 </kw>
 <arg>\'\'</arg>
 <arg>XX</arg>
-<status status="PASS" start="2024-11-06T22:33:10.352900" elapsed="0.003656"/>
+<status status="PASS" start="2024-11-07T11:45:11.598935" elapsed="0.003717"/>
 </kw>
 <tag>mixed</tag>
-<status status="PASS" start="2024-11-06T22:33:10.352180" elapsed="0.004592"/>
+<status status="PASS" start="2024-11-07T11:45:11.598208" elapsed="0.004655"/>
 </test>
-<test id="s1-t11" name="Only Double Quotation" line="44">
+<test id="s1-t10" name="Only Double Quotation" line="44">
 <kw name="Send text to Pico" owner="common_keywords">
 <kw name="Send Text" owner="AtCommandLibrary">
 <arg>${command}</arg>
-<status status="PASS" start="2024-11-06T22:33:10.358986" elapsed="0.002192"/>
+<status status="PASS" start="2024-11-07T11:45:11.604757" elapsed="0.002049"/>
 </kw>
 <kw name="Response Should Be" owner="AtCommandLibrary">
 <arg>SENT="${response}"</arg>
-<status status="PASS" start="2024-11-06T22:33:10.361498" elapsed="0.000793"/>
+<status status="PASS" start="2024-11-07T11:45:11.607085" elapsed="0.000546"/>
 </kw>
 <kw name="Response Should Be" owner="AtCommandLibrary">
 <arg>OK</arg>
-<status status="PASS" start="2024-11-06T22:33:10.362514" elapsed="0.000270"/>
+<status status="PASS" start="2024-11-07T11:45:11.607859" elapsed="0.000251"/>
 </kw>
 <arg>\"\"</arg>
 <arg>${EMPTY}</arg>
-<status status="PASS" start="2024-11-06T22:33:10.357750" elapsed="0.005159"/>
+<status status="PASS" start="2024-11-07T11:45:11.603877" elapsed="0.004424"/>
 </kw>
 <tag>mixed</tag>
-<status status="PASS" start="2024-11-06T22:33:10.357063" elapsed="0.006122"/>
+<status status="PASS" start="2024-11-07T11:45:11.603206" elapsed="0.005389"/>
 </test>
-<test id="s1-t12" name="Printable ASCII" line="47">
+<test id="s1-t11" name="Printable ASCII" line="47">
 <kw name="Send text to Pico" owner="common_keywords">
 <kw name="Send Text" owner="AtCommandLibrary">
 <arg>${command}</arg>
-<status status="PASS" start="2024-11-06T22:33:10.366294" elapsed="0.002688"/>
+<status status="PASS" start="2024-11-07T11:45:11.611661" elapsed="0.002436"/>
 </kw>
 <kw name="Response Should Be" owner="AtCommandLibrary">
 <arg>SENT="${response}"</arg>
-<status status="PASS" start="2024-11-06T22:33:10.369347" elapsed="0.000908"/>
+<status status="PASS" start="2024-11-07T11:45:11.614442" elapsed="0.000916"/>
 </kw>
 <kw name="Response Should Be" owner="AtCommandLibrary">
 <arg>OK</arg>
-<status status="PASS" start="2024-11-06T22:33:10.370592" elapsed="0.000461"/>
+<status status="PASS" start="2024-11-07T11:45:11.615658" elapsed="0.000463"/>
 </kw>
 <arg>! # $ % &amp; ' ...</arg>
 <arg>X X X X X X XXX</arg>
-<status status="PASS" start="2024-11-06T22:33:10.365033" elapsed="0.006217"/>
+<status status="PASS" start="2024-11-07T11:45:11.610821" elapsed="0.005404"/>
 </kw>
 <tag>mixed</tag>
-<status status="PASS" start="2024-11-06T22:33:10.363665" elapsed="0.007952"/>
+<status status="PASS" start="2024-11-07T11:45:11.609243" elapsed="0.007254"/>
 </test>
-<test id="s1-t13" name="Letters, Numbers" line="50">
+<test id="s1-t12" name="Letters, Numbers" line="50">
 <kw name="Send text to Pico" owner="common_keywords">
 <kw name="Send Text" owner="AtCommandLibrary">
 <arg>${command}</arg>
-<status status="PASS" start="2024-11-06T22:33:10.373501" elapsed="0.002054"/>
+<status status="PASS" start="2024-11-07T11:45:11.618424" elapsed="0.002026"/>
 </kw>
 <kw name="Response Should Be" owner="AtCommandLibrary">
 <arg>SENT="${response}"</arg>
-<status status="PASS" start="2024-11-06T22:33:10.375869" elapsed="0.000762"/>
+<status status="PASS" start="2024-11-07T11:45:11.620763" elapsed="0.000607"/>
 </kw>
 <kw name="Response Should Be" owner="AtCommandLibrary">
 <arg>OK</arg>
-<status status="PASS" start="2024-11-06T22:33:10.376871" elapsed="0.000283"/>
+<status status="PASS" start="2024-11-07T11:45:11.621586" elapsed="0.000273"/>
 </kw>
 <arg>abc123</arg>
 <arg>ABC123</arg>
-<status status="PASS" start="2024-11-06T22:33:10.372882" elapsed="0.004391"/>
+<status status="PASS" start="2024-11-07T11:45:11.617803" elapsed="0.004175"/>
 </kw>
 <tag>mixed</tag>
-<status status="PASS" start="2024-11-06T22:33:10.372080" elapsed="0.005473"/>
+<status status="PASS" start="2024-11-07T11:45:11.617044" elapsed="0.005233"/>
 </test>
-<test id="s1-t14" name="Characters and numbers" line="53">
+<test id="s1-t13" name="Characters and numbers" line="53">
 <kw name="Send text to Pico" owner="common_keywords">
 <kw name="Send Text" owner="AtCommandLibrary">
 <arg>${command}</arg>
-<status status="PASS" start="2024-11-06T22:33:10.379118" elapsed="0.002018"/>
+<status status="PASS" start="2024-11-07T11:45:11.624403" elapsed="0.002320"/>
 </kw>
 <kw name="Response Should Be" owner="AtCommandLibrary">
 <arg>SENT="${response}"</arg>
-<status status="PASS" start="2024-11-06T22:33:10.381395" elapsed="0.000704"/>
+<status status="PASS" start="2024-11-07T11:45:11.627763" elapsed="0.000609"/>
 </kw>
 <kw name="Response Should Be" owner="AtCommandLibrary">
 <arg>OK</arg>
-<status status="PASS" start="2024-11-06T22:33:10.382396" elapsed="0.000540"/>
+<status status="PASS" start="2024-11-07T11:45:11.628574" elapsed="0.000329"/>
 </kw>
 <arg>!*%4!22?</arg>
 <arg>XXX4X22X</arg>
-<status status="PASS" start="2024-11-06T22:33:10.378653" elapsed="0.004565"/>
+<status status="PASS" start="2024-11-07T11:45:11.623711" elapsed="0.005366"/>
 </kw>
 <tag>mixed</tag>
-<status status="PASS" start="2024-11-06T22:33:10.377985" elapsed="0.005738"/>
+<status status="PASS" start="2024-11-07T11:45:11.622803" elapsed="0.006950"/>
 </test>
-<test id="s1-t15" name="Combining Different Char" line="56">
+<test id="s1-t14" name="Combining Different Char" line="56">
 <kw name="Send text to Pico" owner="common_keywords">
 <kw name="Send Text" owner="AtCommandLibrary">
 <arg>${command}</arg>
-<status status="PASS" start="2024-11-06T22:33:10.386617" elapsed="0.002108"/>
+<status status="PASS" start="2024-11-07T11:45:11.632879" elapsed="0.001835"/>
 </kw>
 <kw name="Response Should Be" owner="AtCommandLibrary">
 <arg>SENT="${response}"</arg>
-<status status="PASS" start="2024-11-06T22:33:10.389007" elapsed="0.001056"/>
+<status status="PASS" start="2024-11-07T11:45:11.634967" elapsed="0.001035"/>
 </kw>
 <kw name="Response Should Be" owner="AtCommandLibrary">
 <arg>OK</arg>
-<status status="PASS" start="2024-11-06T22:33:10.390332" elapsed="0.000312"/>
+<status status="PASS" start="2024-11-07T11:45:11.636155" elapsed="0.000187"/>
 </kw>
 <arg>Hello*/ world!12?</arg>
 <arg>HELLOXX WORLDX12X</arg>
-<status status="PASS" start="2024-11-06T22:33:10.385684" elapsed="0.005242"/>
+<status status="PASS" start="2024-11-07T11:45:11.632171" elapsed="0.004248"/>
 </kw>
 <tag>mixed</tag>
-<status status="PASS" start="2024-11-06T22:33:10.384463" elapsed="0.006720"/>
+<status status="PASS" start="2024-11-07T11:45:11.630665" elapsed="0.005972"/>
 </test>
-<test id="s1-t16" name="Letters, Numbers, Char" line="59">
+<test id="s1-t15" name="Letters, Numbers, Char" line="59">
 <kw name="Send text to Pico" owner="common_keywords">
 <kw name="Send Text" owner="AtCommandLibrary">
 <arg>${command}</arg>
-<status status="PASS" start="2024-11-06T22:33:10.392791" elapsed="0.002082"/>
+<status status="PASS" start="2024-11-07T11:45:11.637906" elapsed="0.001837"/>
 </kw>
 <kw name="Response Should Be" owner="AtCommandLibrary">
 <arg>SENT="${response}"</arg>
-<status status="PASS" start="2024-11-06T22:33:10.395096" elapsed="0.001183"/>
+<status status="PASS" start="2024-11-07T11:45:11.640074" elapsed="0.001188"/>
 </kw>
 <kw name="Response Should Be" owner="AtCommandLibrary">
 <arg>OK</arg>
-<status status="PASS" start="2024-11-06T22:33:10.396454" elapsed="0.000354"/>
+<status status="PASS" start="2024-11-07T11:45:11.641632" elapsed="0.000366"/>
 </kw>
 <arg>thIs iS STRiNG &amp;&amp; 123</arg>
 <arg>THIS IS STRING XX 123</arg>
-<status status="PASS" start="2024-11-06T22:33:10.392119" elapsed="0.004775"/>
+<status status="PASS" start="2024-11-07T11:45:11.637375" elapsed="0.004741"/>
 </kw>
 <tag>mixed</tag>
-<status status="PASS" start="2024-11-06T22:33:10.391501" elapsed="0.005686"/>
+<status status="PASS" start="2024-11-07T11:45:11.636892" elapsed="0.005543"/>
 </test>
-<test id="s1-t17" name="Long text" line="62">
+<test id="s1-t16" name="Long text" line="62">
 <kw name="Send text to Pico" owner="common_keywords">
 <kw name="Send Text" owner="AtCommandLibrary">
 <arg>${command}</arg>
-<status status="PASS" start="2024-11-06T22:33:10.400283" elapsed="0.002227"/>
+<status status="PASS" start="2024-11-07T11:45:11.645761" elapsed="0.002617"/>
 </kw>
 <kw name="Response Should Be" owner="AtCommandLibrary">
 <arg>SENT="${response}"</arg>
-<status status="PASS" start="2024-11-06T22:33:10.402994" elapsed="0.002666"/>
+<status status="PASS" start="2024-11-07T11:45:11.648780" elapsed="0.002572"/>
 </kw>
 <kw name="Response Should Be" owner="AtCommandLibrary">
 <arg>OK</arg>
-<status status="PASS" start="2024-11-06T22:33:10.405870" elapsed="0.000489"/>
+<status status="PASS" start="2024-11-07T11:45:11.651583" elapsed="0.000865"/>
 </kw>
 <arg>this is very long long long long long long long long text</arg>
 <arg>THIS IS VERY LONG LONG LONG LONG LONG LONG LONG LONG TEXT</arg>
-<status status="PASS" start="2024-11-06T22:33:10.399255" elapsed="0.007262"/>
+<status status="PASS" start="2024-11-07T11:45:11.644294" elapsed="0.008551"/>
 </kw>
 <tag>text_only</tag>
-<status status="PASS" start="2024-11-06T22:33:10.397965" elapsed="0.008852"/>
+<status status="PASS" start="2024-11-07T11:45:11.642995" elapsed="0.010285"/>
 </test>
 <kw name="Suite teardown" owner="common_keywords" type="TEARDOWN">
 <kw name="Switch local echo on" owner="common_keywords">
 <kw name="Send Command" owner="AtCommandLibrary">
 <arg>ATE1</arg>
-<status status="PASS" start="2024-11-06T22:33:10.408187" elapsed="0.000253"/>
+<status status="PASS" start="2024-11-07T11:45:11.656014" elapsed="0.000443"/>
 </kw>
 <kw name="Response Should Be" owner="AtCommandLibrary">
 <arg>OK</arg>
-<status status="PASS" start="2024-11-06T22:33:10.408732" elapsed="0.000244"/>
+<status status="PASS" start="2024-11-07T11:45:11.656800" elapsed="0.000469"/>
 </kw>
-<status status="PASS" start="2024-11-06T22:33:10.408002" elapsed="0.001059"/>
+<status status="PASS" start="2024-11-07T11:45:11.655561" elapsed="0.001895"/>
 </kw>
 <kw name="Check echo status" owner="common_keywords">
 <kw name="Send Command" owner="AtCommandLibrary">
 <arg>ATE</arg>
-<status status="PASS" start="2024-11-06T22:33:10.409545" elapsed="0.000207"/>
+<status status="PASS" start="2024-11-07T11:45:11.658413" elapsed="0.000602"/>
 </kw>
 <kw name="Response Should Be" owner="AtCommandLibrary">
 <arg>${expected_status}</arg>
-<status status="PASS" start="2024-11-06T22:33:10.409945" elapsed="0.000446"/>
+<status status="PASS" start="2024-11-07T11:45:11.659451" elapsed="0.000668"/>
 </kw>
 <arg>ATE</arg>
-<status status="PASS" start="2024-11-06T22:33:10.409248" elapsed="0.001230"/>
+<status status="PASS" start="2024-11-07T11:45:11.657754" elapsed="0.002558"/>
 </kw>
 <kw name="Response Should Be" owner="AtCommandLibrary">
 <arg>ON</arg>
-<status status="PASS" start="2024-11-06T22:33:10.410602" elapsed="0.000206"/>
+<status status="PASS" start="2024-11-07T11:45:11.660557" elapsed="0.000404"/>
 </kw>
-<status status="PASS" start="2024-11-06T22:33:10.407698" elapsed="0.003189"/>
+<status status="PASS" start="2024-11-07T11:45:11.654957" elapsed="0.006239"/>
 </kw>
 <doc>Example of morse transmitter test
 
 Change this example to use data driven style
 Test with different texts and speeds</doc>
-<status status="PASS" start="2024-11-06T22:33:10.224813" elapsed="0.186106"/>
+<status status="PASS" start="2024-11-07T11:45:11.487124" elapsed="0.174142"/>
 </suite>
 <statistics>
 <total>
-<stat pass="17" fail="0" skip="0">All Tests</stat>
+<stat pass="16" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 <stat pass="12" fail="0" skip="0">mixed</stat>
-<stat pass="1" fail="0" skip="0">numerical</stat>
 <stat pass="4" fail="0" skip="0">text_only</stat>
 </tag>
 <suite>
-<stat pass="17" fail="0" skip="0" id="s1" name="Atcmd">Atcmd</stat>
+<stat pass="16" fail="0" skip="0" id="s1" name="Atcmd">Atcmd</stat>
 </suite>
 </statistics>
 <errors>
