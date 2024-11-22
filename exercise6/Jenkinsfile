@@ -1,0 +1,49 @@
+pipeline {
+  agent { label 'pico-build'}
+  environment {
+// //   COM_PORT = '/dev/tty.usbmodem144301'
+    TEST_DIRECTORY = 'robot-test'
+ //   OPENOCD_PATH = 'openocd -s /usr/local/openocd-0.12/openocd/scripts'
+  }
+
+  stages {
+    stage('build') {
+      steps {
+        echo 'Building...'
+	      sh 'docker compose up'
+      }
+    }
+  
+  stage('program') {
+      steps {
+        echo 'Programming Pico with OpenOCD...'
+        sh '''#!/bin/bash
+        ${OPENOCD_PATH} -f board/pico-debug.cfg -c "tcl_port disabled" -c "gdb_port disabled" -c "program \"cmake-build-debug/atcmd.elf\"" -c reset -c shutdown
+        '''
+      }
+    }
+
+  stage('tests') {
+      steps {
+        echo 'Running Robot Framework Tests...'
+        sh '''
+         sleep 5
+	 robot -v COM_PORT:${COM_PORT} ${TEST_DIRECTORY}/atcmd.robot
+        '''
+      }
+    }
+
+  stage('publish results')  {
+      steps {
+	      echo 'Publish Robot report'
+	      robot( 
+        archiveDirName: 'robot-plugin', 
+        logFileName: 'log.html', 
+        outputFileName: 'output.xml', 
+        outputPath: '${OUTPUT_ROBOT_FRAMEWORK_PATH}', 
+        overwriteXAxisLabel: '', 
+        reportFileName: 'report.html')
+	    }
+    }
+  }
+}
