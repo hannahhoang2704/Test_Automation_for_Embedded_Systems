@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.9.15 on darwin)" generated="2024-11-25T11:50:28.706166" rpa="false" schemaversion="5">
+<suite id="s1" name="Ex10" source="/Users/HannahHoang/Desktop-/Metropolia-STUDY/Test_automation/Test_Automation_for_Embedded_Systems/exercise10/ex10.robot">
+<test id="s1-t1" name="Remove Address File Test If Exist" line="19">
+<kw name="Test setup" type="SETUP">
+<kw name="Open Connection" owner="SSHLibrary">
+<arg>${SHELL_HOST}</arg>
+<doc>Opens a new SSH connection to the given ``host`` and ``port``.</doc>
+<status status="PASS" start="2024-11-25T11:50:29.491959" elapsed="0.000583"/>
+</kw>
+<kw name="Login With Public Key" owner="SSHLibrary">
+<msg time="2024-11-25T11:50:29.493352" level="INFO">Logging into 'shell.metropolia.fi:22' as 'hanhh'.</msg>
+<msg time="2024-11-25T11:50:30.769805" level="INFO">Read output: Last login: Mon Nov 25 11:50:09 2024 from 10.116.96.74
+[?2004h[hanhh@shell ~]$</msg>
+<arg>${SSH_USERNAME}</arg>
+<arg>${SSH_KEY_PATH}</arg>
+<doc>Logs into the SSH server using key-based authentication.</doc>
+<status status="PASS" start="2024-11-25T11:50:29.492948" elapsed="1.277222"/>
+</kw>
+<status status="PASS" start="2024-11-25T11:50:29.490191" elapsed="1.280146"/>
+</kw>
+<kw name="Remove Existing Address File">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="File Should Exist" owner="SSHLibrary">
+<msg time="2024-11-25T11:50:30.829709" level="INFO">[chan 1] Opened sftp connection (server version 3)</msg>
+<arg>${file_name}</arg>
+<doc>Fails if the given ``path`` does NOT point to an existing file.</doc>
+<status status="PASS" start="2024-11-25T11:50:30.771779" elapsed="0.064030"/>
+</kw>
+<msg time="2024-11-25T11:50:30.836038" level="INFO">${file_exists} = True</msg>
+<var>${file_exists}</var>
+<arg>SSHLibrary.File Should Exist</arg>
+<arg>${file_name}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2024-11-25T11:50:30.771509" elapsed="0.064570"/>
+</kw>
+<if>
+<branch type="IF" condition="${file_exists}">
+<kw name="Get Remote File Content">
+<kw name="Execute Command" owner="SSHLibrary">
+<msg time="2024-11-25T11:50:30.837335" level="INFO">Executing command 'cat /home2-2/h/hanhh/file.txt'.</msg>
+<msg time="2024-11-25T11:50:30.876228" level="INFO">Command exited with return code 0.</msg>
+<msg time="2024-11-25T11:50:30.876471" level="INFO">${output} = Marjatta Juntunen
+Salamakatu 71
+28414 Padasjoki</msg>
+<var>${output}</var>
+<arg>cat ${file_name}</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<status status="PASS" start="2024-11-25T11:50:30.837097" elapsed="0.039414"/>
+</kw>
+<return>
+<value>${output}</value>
+<status status="PASS" start="2024-11-25T11:50:30.876625" elapsed="0.000071"/>
+</return>
+<msg time="2024-11-25T11:50:30.876924" level="INFO">${file_content} = Marjatta Juntunen
+Salamakatu 71
+28414 Padasjoki</msg>
+<var>${file_content}</var>
+<arg>${file_name}</arg>
+<doc>Retrieve the content of a file from the remote server.</doc>
+<status status="PASS" start="2024-11-25T11:50:30.836601" elapsed="0.040356"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-11-25T11:50:30.877445" level="INFO">file content: Marjatta Juntunen
+Salamakatu 71
+28414 Padasjoki</msg>
+<arg>file content: ${file_content}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-11-25T11:50:30.877185" elapsed="0.000321"/>
+</kw>
+<kw name="Get Line" owner="String">
+<msg time="2024-11-25T11:50:30.877888" level="INFO">${first_line} = Marjatta Juntunen</msg>
+<var>${first_line}</var>
+<arg>${file_content}</arg>
+<arg>0</arg>
+<doc>Returns the specified line from the given ``string``.</doc>
+<status status="PASS" start="2024-11-25T11:50:30.877658" elapsed="0.000262"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Removing address file of person name: ${first_line}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-11-25T11:50:30.878065" elapsed="0.000361"/>
+</kw>
+<kw name="Remove File" owner="OperatingSystem">
+<msg time="2024-11-25T11:50:30.878847" level="INFO" html="true">File '&lt;a href="file:///home2-2/h/hanhh/file.txt"&gt;/home2-2/h/hanhh/file.txt&lt;/a&gt;' does not exist.</msg>
+<arg>${file_name}</arg>
+<doc>Removes a file with the given path.</doc>
+<status status="PASS" start="2024-11-25T11:50:30.878580" elapsed="0.000355"/>
+</kw>
+<status status="PASS" start="2024-11-25T11:50:30.836236" elapsed="0.042758"/>
+</branch>
+<status status="PASS" start="2024-11-25T11:50:30.836190" elapsed="0.042846"/>
+</if>
+<arg>${FILE_PATH}</arg>
+<doc>Remove an existing specific file.</doc>
+<status status="PASS" start="2024-11-25T11:50:30.770860" elapsed="0.108262"/>
+</kw>
+<kw name="Test teardown" type="TEARDOWN">
+<kw name="Close Connection" owner="SSHLibrary">
+<doc>Closes the current connection.</doc>
+<status status="PASS" start="2024-11-25T11:50:30.879999" elapsed="0.000787"/>
+</kw>
+<status status="PASS" start="2024-11-25T11:50:30.879541" elapsed="0.001400"/>
+</kw>
+<status status="PASS" start="2024-11-25T11:50:29.488939" elapsed="1.392144"/>
+</test>
+<test id="s1-t2" name="Create New Address File" line="22">
+<kw name="Test setup" type="SETUP">
+<kw name="Open Connection" owner="SSHLibrary">
+<arg>${SHELL_HOST}</arg>
+<doc>Opens a new SSH connection to the given ``host`` and ``port``.</doc>
+<status status="PASS" start="2024-11-25T11:50:30.882917" elapsed="0.000415"/>
+</kw>
+<kw name="Login With Public Key" owner="SSHLibrary">
+<msg time="2024-11-25T11:50:30.883895" level="INFO">Logging into 'shell.metropolia.fi:22' as 'hanhh'.</msg>
+<msg time="2024-11-25T11:50:32.149545" level="INFO">Read output: Last login: Mon Nov 25 11:50:29 2024 from 10.116.96.74
+[?2004h[hanhh@shell ~]$</msg>
+<arg>${SSH_USERNAME}</arg>
+<arg>${SSH_KEY_PATH}</arg>
+<doc>Logs into the SSH server using key-based authentication.</doc>
+<status status="PASS" start="2024-11-25T11:50:30.883560" elapsed="1.266475"/>
+</kw>
+<status status="PASS" start="2024-11-25T11:50:30.882353" elapsed="1.268090"/>
+</kw>
+<kw name="Get Random Names">
+<kw name="Create List" owner="BuiltIn">
+<msg time="2024-11-25T11:50:32.154326" level="INFO">@{random_list} = [ ]</msg>
+<var>@{random_list}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2024-11-25T11:50:32.153854" elapsed="0.000560"/>
+</kw>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Name" owner="FakerLibrary">
+<msg time="2024-11-25T11:50:32.156277" level="INFO">${name} = Hellevi Mattila-Nurmi</msg>
+<var>${name}</var>
+<doc>:example: 'John Doe'</doc>
+<status status="PASS" start="2024-11-25T11:50:32.155385" elapsed="0.000971"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${random_list}</arg>
+<arg>${name}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-11-25T11:50:32.156701" elapsed="0.000507"/>
+</kw>
+<var name="${i}">0</var>
+<status status="PASS" start="2024-11-25T11:50:32.155098" elapsed="0.002280"/>
+</iter>
+<iter>
+<kw name="Name" owner="FakerLibrary">
+<msg time="2024-11-25T11:50:32.158995" level="INFO">${name} = Esteri Holmström</msg>
+<var>${name}</var>
+<doc>:example: 'John Doe'</doc>
+<status status="PASS" start="2024-11-25T11:50:32.158175" elapsed="0.000898"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${random_list}</arg>
+<arg>${name}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-11-25T11:50:32.159393" elapsed="0.000476"/>
+</kw>
+<var name="${i}">1</var>
+<status status="PASS" start="2024-11-25T11:50:32.157831" elapsed="0.002141"/>
+</iter>
+<iter>
+<kw name="Name" owner="FakerLibrary">
+<msg time="2024-11-25T11:50:32.165435" level="INFO">${name} = Karl Lindroos</msg>
+<var>${name}</var>
+<doc>:example: 'John Doe'</doc>
+<status status="PASS" start="2024-11-25T11:50:32.160413" elapsed="0.005128"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${random_list}</arg>
+<arg>${name}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-11-25T11:50:32.165996" elapsed="0.000441"/>
+</kw>
+<var name="${i}">2</var>
+<status status="PASS" start="2024-11-25T11:50:32.160199" elapsed="0.006334"/>
+</iter>
+<iter>
+<kw name="Name" owner="FakerLibrary">
+<msg time="2024-11-25T11:50:32.167905" level="INFO">${name} = Jenni Backman-Ikonen</msg>
+<var>${name}</var>
+<doc>:example: 'John Doe'</doc>
+<status status="PASS" start="2024-11-25T11:50:32.167266" elapsed="0.000701"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${random_list}</arg>
+<arg>${name}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-11-25T11:50:32.168221" elapsed="0.000428"/>
+</kw>
+<var name="${i}">3</var>
+<status status="PASS" start="2024-11-25T11:50:32.166890" elapsed="0.001852"/>
+</iter>
+<iter>
+<kw name="Name" owner="FakerLibrary">
+<msg time="2024-11-25T11:50:32.169649" level="INFO">${name} = Minna Matikainen</msg>
+<var>${name}</var>
+<doc>:example: 'John Doe'</doc>
+<status status="PASS" start="2024-11-25T11:50:32.169147" elapsed="0.000556"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${random_list}</arg>
+<arg>${name}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-11-25T11:50:32.169934" elapsed="0.000343"/>
+</kw>
+<var name="${i}">4</var>
+<status status="PASS" start="2024-11-25T11:50:32.168942" elapsed="0.001417"/>
+</iter>
+<var>${i}</var>
+<value>${random_nr}</value>
+<status status="PASS" start="2024-11-25T11:50:32.154608" elapsed="0.015825"/>
+</for>
+<return>
+<value>${random_list}</value>
+<status status="PASS" start="2024-11-25T11:50:32.170520" elapsed="0.000063"/>
+</return>
+<msg time="2024-11-25T11:50:32.170909" level="INFO">@{name_list} = [ Hellevi Mattila-Nurmi | Esteri Holmström | Karl Lindroos | Jenni Backman-Ikonen | Minna Matikainen ]</msg>
+<var>@{name_list}</var>
+<arg>${5}</arg>
+<doc>Return a list of random names.</doc>
+<status status="PASS" start="2024-11-25T11:50:32.151652" elapsed="0.019300"/>
+</kw>
+<kw name="Get Selection From User" owner="Dialogs">
+<msg time="2024-11-25T11:50:36.512317" level="INFO">${selected_name} = Jenni Backman-Ikonen</msg>
+<var>${selected_name}</var>
+<arg>Choose a name from list below</arg>
+<arg>@{name_list}</arg>
+<doc>Pauses execution and asks user to select a value.</doc>
+<status status="PASS" start="2024-11-25T11:50:32.171351" elapsed="4.341028"/>
+</kw>
+<kw name="Address" owner="FakerLibrary">
+<msg time="2024-11-25T11:50:36.513230" level="INFO">${address} = Runokyläntie 785
+57842 Isojoki</msg>
+<var>${address}</var>
+<doc>:example: '791 Crist Parks, Sashabury, IL 86039-9874'</doc>
+<status status="PASS" start="2024-11-25T11:50:36.512745" elapsed="0.000535"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Creating new file with path</arg>
+<arg>${FILE_PATH}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-11-25T11:50:36.513578" elapsed="0.000501"/>
+</kw>
+<kw name="Create Remote File">
+<kw name="Execute Command" owner="SSHLibrary">
+<msg time="2024-11-25T11:50:36.516034" level="INFO">Executing command 'echo -e "Jenni Backman-Ikonen
+Runokyläntie 785
+57842 Isojoki" &gt; /home2-2/h/hanhh/file.txt'.</msg>
+<msg time="2024-11-25T11:50:36.562421" level="INFO">Command exited with return code 0.</msg>
+<arg>echo -e "${content}" &gt; ${file_name}</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<status status="PASS" start="2024-11-25T11:50:36.515543" elapsed="0.047054"/>
+</kw>
+<arg>${FILE_PATH}</arg>
+<arg>${selected_name}${\n}${address}</arg>
+<doc>Create a file with specified content on the remote server.</doc>
+<status status="PASS" start="2024-11-25T11:50:36.514495" elapsed="0.048253"/>
+</kw>
+<kw name="Test teardown" type="TEARDOWN">
+<kw name="Close Connection" owner="SSHLibrary">
+<doc>Closes the current connection.</doc>
+<status status="PASS" start="2024-11-25T11:50:36.564111" elapsed="0.000532"/>
+</kw>
+<status status="PASS" start="2024-11-25T11:50:36.563593" elapsed="0.001167"/>
+</kw>
+<status status="PASS" start="2024-11-25T11:50:30.881567" elapsed="5.683319"/>
+</test>
+<test id="s1-t3" name="Check file content" line="30">
+<kw name="Test setup" type="SETUP">
+<kw name="Open Connection" owner="SSHLibrary">
+<arg>${SHELL_HOST}</arg>
+<doc>Opens a new SSH connection to the given ``host`` and ``port``.</doc>
+<status status="PASS" start="2024-11-25T11:50:36.566530" elapsed="0.000410"/>
+</kw>
+<kw name="Login With Public Key" owner="SSHLibrary">
+<msg time="2024-11-25T11:50:36.567456" level="INFO">Logging into 'shell.metropolia.fi:22' as 'hanhh'.</msg>
+<msg time="2024-11-25T11:50:37.837547" level="INFO">Read output: Last login: Mon Nov 25 11:50:31 2024 from 10.116.96.74
+[?2004h[hanhh@shell ~]$</msg>
+<arg>${SSH_USERNAME}</arg>
+<arg>${SSH_KEY_PATH}</arg>
+<doc>Logs into the SSH server using key-based authentication.</doc>
+<status status="PASS" start="2024-11-25T11:50:36.567139" elapsed="1.270903"/>
+</kw>
+<status status="PASS" start="2024-11-25T11:50:36.566003" elapsed="1.272432"/>
+</kw>
+<kw name="Get Remote File Content">
+<kw name="Execute Command" owner="SSHLibrary">
+<msg time="2024-11-25T11:50:37.841491" level="INFO">Executing command 'cat /home2-2/h/hanhh/file.txt'.</msg>
+<msg time="2024-11-25T11:50:37.890149" level="INFO">Command exited with return code 0.</msg>
+<msg time="2024-11-25T11:50:37.890759" level="INFO">${output} = Jenni Backman-Ikonen
+Runokyläntie 785
+57842 Isojoki</msg>
+<var>${output}</var>
+<arg>cat ${file_name}</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<status status="PASS" start="2024-11-25T11:50:37.840860" elapsed="0.050019"/>
+</kw>
+<return>
+<value>${output}</value>
+<status status="PASS" start="2024-11-25T11:50:37.891152" elapsed="0.000150"/>
+</return>
+<msg time="2024-11-25T11:50:37.891891" level="INFO">${file_content} = Jenni Backman-Ikonen
+Runokyläntie 785
+57842 Isojoki</msg>
+<var>${file_content}</var>
+<arg>${FILE_PATH}</arg>
+<doc>Retrieve the content of a file from the remote server.</doc>
+<status status="PASS" start="2024-11-25T11:50:37.839419" elapsed="0.052577"/>
+</kw>
+<kw name="Split To Lines" owner="String">
+<msg time="2024-11-25T11:50:37.893325" level="INFO">3 lines returned</msg>
+<msg time="2024-11-25T11:50:37.893546" level="INFO">${lines} = ['Jenni Backman-Ikonen', 'Runokyläntie 785', '57842 Isojoki']</msg>
+<var>${lines}</var>
+<arg>${file_content}</arg>
+<doc>Splits the given string to lines.</doc>
+<status status="PASS" start="2024-11-25T11:50:37.892740" elapsed="0.000872"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-11-25T11:50:37.894480" level="INFO">['Jenni Backman-Ikonen', 'Runokyläntie 785', '57842 Isojoki']</msg>
+<arg>${lines}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-11-25T11:50:37.894058" elapsed="0.000558"/>
+</kw>
+<kw name="Get Length" owner="BuiltIn">
+<msg time="2024-11-25T11:50:37.895524" level="INFO">Length is 3.</msg>
+<msg time="2024-11-25T11:50:37.895755" level="INFO">${cnt} = 3</msg>
+<var>${cnt}</var>
+<arg>${lines}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="PASS" start="2024-11-25T11:50:37.895051" elapsed="0.000767"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${cnt} lines in files ${FILE_PATH}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-11-25T11:50:37.896310" elapsed="0.000628"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<arg>${cnt}</arg>
+<arg>${3}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2024-11-25T11:50:37.897387" elapsed="0.001297"/>
+</kw>
+<kw name="Test teardown" type="TEARDOWN">
+<kw name="Close Connection" owner="SSHLibrary">
+<doc>Closes the current connection.</doc>
+<status status="PASS" start="2024-11-25T11:50:37.900288" elapsed="0.000842"/>
+</kw>
+<status status="PASS" start="2024-11-25T11:50:37.899553" elapsed="0.001758"/>
+</kw>
+<status status="PASS" start="2024-11-25T11:50:36.565287" elapsed="1.336231"/>
+</test>
+<status status="PASS" start="2024-11-25T11:50:28.708669" elapsed="9.194544"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="3" fail="0" skip="0" id="s1" name="Ex10">Ex10</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
